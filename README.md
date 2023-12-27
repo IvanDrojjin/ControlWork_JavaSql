@@ -18,9 +18,103 @@
 хомяками) и Вьючные животными заполнив файл Лошадьми, верблюдами и
 ослы), а затем объединить их. Просмотреть содержимое созданного файла.
 Переименовать файл, дав ему новое имя (Друзья человека).
+
+СОЗДАЕМ РАБОЧУЮ ДИРРЕКТОРИЮ
+```
+# work dir : GB/HomeWork396437 
+cd~
+Cd  GB
+mkdir HomeWork396437
+cd  ~/GB/HomeWork396437
+```
+Домашние животные
+```
+cat > "Домашние животные" <<EOL
+'Fido', Dog', '2020-01-01', 'Sit, Stay, Fetch'
+'Whiskers', 'Cat', '2019-05-15', 'Sit, Pounce'
+'Hammy', 'Hamster', '2021-03-10', 'Roll, Hide'
+'Buddy', 'Dog', '2018-12-10', 'Sit, Paw, Bark'
+'Smudge', 'Cat', '2020-02-20, 'Sit, Pounce, Scratch'
+'Peanut', 'Hamster', '2021-08-01', 'Roll, Spin'
+'Bella', 'Dog', '2019-11-11', 'Sit, Stay, Roll'
+'Oliver', 'Cat', '2020-06-30', 'Meow, Scratch, Jump'
+EOL
+```
+Вьючные животными
+```
+cat > "Вьючные животные" <<EOL
+'Thunder', 'Horse', '2015-07-21', 'Trot, Canter, Gallop'
+'Sandy', 'Camel', '2016-11-03', 'Walk, Carry Load'
+'Eeyore', 'Donkey', '2017-09-18', 'Walk, Carry Load, Bray'
+'Storm', 'Horse', '2014-05-05', 'Trot, Canter'
+'Dune', 'Camel', '2018-12-12', 'Walk, Sit'
+'Burro', 'Donkey', '2019-01-23', 'Walk, Bray, Kick'
+'Blaze', 'Horse', 2016-02-29', 'Trot, Jump, Gallop'
+'Sahara', 'Camel', '2015-08-14', 'Walk, Run'
+EOL
+```
+а затем объединить их, переименовать и распечатать
+```
+cat "Домашние животные" "Вьючные животные" > "Друзья человека"
+cat "Друзья человека"
+```
+
+![img_4.png](img_4.png)
+
 2. Создать директорию, переместить файл туда.
+
+```
+mkdir Result
+mv "Друзья человека" "Result/"
+ls ./Result
+tree
+```
+
+![img_5.png](img_5.png)
 3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
 из этого репозитория.
+
+![img_7.png](img_7.png)
+
+```
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.20-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.20-1_all.deb
+```
+![img_8.png](img_8.png)
+
+
+```
+sudo systemctl status mysql.service
+```
+![img_9.png](img_9.png)
+
+```
+Литература 
+PS 
+1. https://stackoverflow.com/questions/48012246/unable-to-install-mysql-on-ubuntu-16-04 
+2. https://linux.how2shout.com/add-repository-to-install-mysql-5-7-on-ubuntu-20-04-lts-linux/
+3. https://www.dev-notes.ru/articles/devops/installing-mysql-server-on-ubuntu-22-04-lts-linux/ 
+4. https://ru.stackoverflow.com/questions/992815/Как-установить-mysql-8-0-8-0-15-на-ubuntu-18-04-так-же-для-digitalocean 
+5. https://askubuntu.com/questions/640899/how-do-i-uninstall-mysql-completely/640900#640900 
+6. https://ruslanmv.com/blog/How-to-create-your-MySQL-Server-in-Virtual-Box 
+```
+
+
+
+
+
+```
+
+```
+
+```
+```
+
+```
+```
+
+
+
 4. Установить и удалить deb-пакет с помощью dpkg.
 5. Выложить историю команд в терминале ubuntu
 6. Нарисовать диаграмму, в которой есть класс родительский класс, домашние
