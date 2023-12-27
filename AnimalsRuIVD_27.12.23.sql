@@ -1,11 +1,6 @@
 --  23.12.2023  MySql DATABASE Друзья_человека
 /*
-
-	Line   3: 	MySql Root Password:     gbmysqlivd@64   gbmysqlivd@64    gbmysqlivd@64
-	Line  53: MySql Root Password:     gbmysqlivd@64   gbmysqlivd@64    gbmysqlivd@64
-
-Друзья_человека -- >  Друзья_человека
-
+  Друзья_человека
 */
 
 
