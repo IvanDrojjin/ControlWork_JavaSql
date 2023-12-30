@@ -65,7 +65,8 @@ public class DemoSql {
               properties.getProperty("database.pass"));
 
         Statement statementUSE = connection.createStatement();
-        statementUSE.executeUpdate("USE Друзья_человека");
+        statementUSE.executeUpdate(
+                "USE Друзья_человека; SET CHARACTER SET 'utf8'; SET collation_connection='utf8_general_ci';");
 
         Statement statement = connection.createStatement();
 

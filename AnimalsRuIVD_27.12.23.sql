@@ -20,7 +20,7 @@ CREATE TABLE SEQUENCES
 (  
   NM_SEQUENCE VARCHAR(32) NOT NULL UNIQUE,  
   VR_SEQUENCE BIGINT      NOT NULL  
-);  
+)DEFAULT CHARSET=utf8;  
 
 DROP PROCEDURE IF EXISTS CreateSequence;  
 
@@ -131,7 +131,7 @@ CREATE TABLE домашние ( -- собаки кошки хомячки
   видId INT UNSIGNED NOT NULL,
   FOREIGN KEY (видId) REFERENCES животные (`id`) ON DELETE CASCADE
   , CONSTRAINT UQ_вид UNIQUE(вид) 
-);
+)DEFAULT CHARSET=utf8;
 
 CREATE TABLE вьючные (  -- лошади ослы верблюды
   id INT UNSIGNED NOT NULL  PRIMARY KEY UNIQUE,   -- AUTO_INCREMENT  !!! use SELECT GSValOdd()
@@ -139,7 +139,7 @@ CREATE TABLE вьючные (  -- лошади ослы верблюды
   видId INT UNSIGNED NOT NULL,
   FOREIGN KEY (видId) REFERENCES животные (`id`) ON DELETE CASCADE
   , CONSTRAINT UQ_вид UNIQUE(вид)
-);
+)DEFAULT CHARSET=utf8;
 
 
 -- Создаем таблицу собаки с внешним ключом на таблицу домашние
@@ -153,7 +153,7 @@ CREATE TABLE собаки (
   видId INT UNSIGNED NOT NULL,
   FOREIGN KEY (видId) REFERENCES домашние (`id`) ON DELETE CASCADE  -- животные
     , CONSTRAINT UQ_имя_дата_рождения UNIQUE(имя, дата_рождения)
-);
+)DEFAULT CHARSET=utf8;
 
 
 -- Создаем таблицу кошки с внешним ключом на таблицу домашние
@@ -166,7 +166,7 @@ CREATE TABLE кошки (
   видId INT UNSIGNED NOT NULL,
   FOREIGN KEY (видId) REFERENCES домашние (`id`) ON DELETE CASCADE
     , CONSTRAINT UQ_имя_дата_рождения UNIQUE(имя, дата_рождения)
-);
+)DEFAULT CHARSET=utf8;
 
 -- Создаем таблицу хомячки с внешним ключом на таблицу домашние
 DROP TABLE IF EXISTS хомячки;
@@ -178,7 +178,7 @@ CREATE TABLE хомячки (
   видId INT UNSIGNED NOT NULL,
   FOREIGN KEY (видId) REFERENCES домашние (`id`) ON DELETE CASCADE
     , CONSTRAINT UQ_имя_дата_рождения UNIQUE(имя, дата_рождения)
-);
+)DEFAULT CHARSET=utf8;
 
 
 -- Создаем таблицу лошади с внешним ключом на таблицу вьючные
@@ -191,7 +191,7 @@ CREATE TABLE лошади (
   видId INT UNSIGNED NOT NULL,
   FOREIGN KEY (видId) REFERENCES вьючные (`id`) ON DELETE CASCADE
     , CONSTRAINT UQ_имя_дата_рождения UNIQUE(имя, дата_рождения)
-);
+)DEFAULT CHARSET=utf8;
 
 -- Создаем таблицу верблюды с внешним ключом на таблицу вьючные
 DROP TABLE IF EXISTS верблюды;
@@ -203,7 +203,7 @@ CREATE TABLE верблюды (
   видId INT UNSIGNED NOT NULL,
   FOREIGN KEY (видId) REFERENCES вьючные (`id`) ON DELETE CASCADE
     , CONSTRAINT UQ_имя_дата_рождения UNIQUE(имя, дата_рождения)
-);
+)DEFAULT CHARSET=utf8;
 
 -- Создаем таблицу ослы с внешним ключом на таблицу вьючные
 DROP TABLE IF EXISTS ослы;
@@ -215,7 +215,7 @@ CREATE TABLE ослы (
   видId INT UNSIGNED NOT NULL,
   FOREIGN KEY (видId) REFERENCES вьючные (`id`) ON DELETE CASCADE
     , CONSTRAINT UQ_имя_дата_рождения UNIQUE(имя, дата_рождения)
-);
+)DEFAULT CHARSET=utf8;
 
 -- Заполняем таблицу животные
 INSERT INTO Друзья_человека.животные (`id`, `вид`) VALUES 
@@ -327,7 +327,7 @@ CREATE TABLE лошади_ослы (
   вид VARCHAR(25) NOT NULL,
   FOREIGN KEY (видId) REFERENCES вьючные ( id ) ON DELETE CASCADE
     , CONSTRAINT UQ_имя_дата_рождения UNIQUE(имя, дата_рождения)
-);
+)DEFAULT CHARSET=utf8;
 
 -- Вставляем данные из лошади в таблицу лошади_ослы 
 INSERT INTO лошади_ослы (id, имя, команды, дата_рождения, видId, вид)
@@ -348,7 +348,7 @@ CREATE TABLE подростки (
   возраст_месяц INT NOT NULL,  
   видId INT UNSIGNED NOT NULL
         , CONSTRAINT UQ_имя_вид_возраст UNIQUE(имя, вид, возраст_месяц)
-);
+)DEFAULT CHARSET=utf8;
 
 -- Вставляем данные из таблиц собаки, кошки, ослы, хомячки, и лошади в таблицу подростки    
     --  'в возрасте от 1 до 3 лет'
@@ -402,7 +402,7 @@ CREATE TABLE все_животные (
   таблица VARCHAR(25) NOT NULL,
   PRIMARY KEY ( id )
       , CONSTRAINT UQ_имя_дата_рождения_таблица UNIQUE(имя, дата_рождения, таблица)
-);
+)DEFAULT CHARSET=utf8;
 
 -- Вставляем данные из таблиц собаки, кошки, ослы, хомячки, и лошади в таблицу все_животные
 INSERT INTO все_животные (id, имя, команды, дата_рождения, видId, таблица)
