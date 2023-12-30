@@ -1,6 +1,19 @@
 --  23.12.2023  MySql DATABASE Друзья_человека
 /*
   Друзья_человека
+  
+Вариант 1: Некоторые предлагают решение с указанием в конце URL useUnicode=yes и charsetEncoding=UTF-8:
+jdbc:mysql://localhost:3306/DATABASE_NAME?useUnicode=yes&characterEncoding=UTF-8
+
+Вариант 2: Взято с сайта dev.mysql.com
+Написать в MySQL консоли - SET NAME 'utf8';
+
+Вариант 3: 
+Взято отсюда. (https://stackoverflow.com/questions/202205/how-to-make-mysql-handle-utf-8-properly)
+
+Написать в MySQL консоли -
+ALTER DATABASE dbname CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
 */
 
 
