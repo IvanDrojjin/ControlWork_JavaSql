@@ -56,7 +56,7 @@ public class DemoSql {
             properties.load(input);
         } catch (IOException e) {
             throw new RuntimeException(e);
-        };   // O:\_Archive\gb\JD\mySql\src\main\resources\sql.properties
+        }   // O:\_Archive\gb\JD\mySql\src\main\resources\sql.properties
 
         Connection connection = DriverManager.getConnection
                 //  ("jdbc:mysql://localhost:3306/Друзья_человека", "root", "gbmysqlivd@64");
@@ -64,12 +64,16 @@ public class DemoSql {
               properties.getProperty("database.login"),
               properties.getProperty("database.pass"));
 
+        Statement statementUSE = connection.createStatement();
+        statementUSE.executeUpdate("USE Друзья_человека");
+
         Statement statement = connection.createStatement();
 
         String[] arr = {"id", "вид"};
         String str = String.join(", ", arr);
-        String str0 = "";  String str1 = "";
-        str0 = "select " + str +" from Друзья_человека.ЖИВОТНЫЕ limit 15";  // select "id", "вид" from Друзья_человека.ЖИВОТНЫЕ limit 15
+        String str0 ;  String str1 ;
+        str0 = "select " + str +" from ЖИВОТНЫЕ limit 15";  // select "id", "вид" from Друзья_человека.ЖИВОТНЫЕ limit 15
+        // str0 = "select " + str +" from Друзья_человека.ЖИВОТНЫЕ limit 15";  // select "id", "вид" from Друзья_человека.ЖИВОТНЫЕ limit 15
 
         ResultSet resultSet = statement.executeQuery(str0);
         ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
@@ -93,10 +97,11 @@ public class DemoSql {
 
 
         while (resultSet.next()){
-            str1 = " ";
-            for (int i = 0; i < arr.length ; i++) {
-                str1 += " " + resultSet.getString(arr[i]);
+            StringBuilder str1Builder = new StringBuilder(" ");
+            for (String s : arr) {
+                str1Builder.append(" ").append(resultSet.getString(s));
             }
+            str1 = str1Builder.toString();
 
             System.out.println(str1);
             // System.out.println( resultSet.getString("id")+ " " + resultSet.getString( "вид"));
@@ -114,7 +119,8 @@ public class DemoSql {
 
 
         ResultSet resultSet1 = statement.executeQuery("select id, name, district from world.city limit 15");
-        System.out.println("\n\nHello " + "select id, name, district from world.city limit 15");
+        System.out.println("""
+                Hello select id, name, district from world.city limit 15""");
 
         while (resultSet1.next()){
             System.out.println(
