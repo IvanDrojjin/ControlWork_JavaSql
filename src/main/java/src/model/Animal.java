@@ -2,19 +2,18 @@ package src.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 public class Animal implements Serializable {
     private String name;
-    private List <String> skills;  // List --> Set for unigue
+    private Skills skills;  // List --> Set for unigue
     private LocalDate birthDay; //, deathDay день рождения, дата смерти
     // https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/LocalDate.html
     private Gender gender; // пол
     private AnimalType animalType;  // вид
-    public Animal(String aName, List<String> skills,
+    public Animal(String aName, String skills,
                   Gender aGender, LocalDate aBirthDay, AnimalType aAnimalType)   {
         this.name = aName;
-        this.skills = skills;
+        this.skills.setStSkills(skills);
         this.gender = aGender;
         this.birthDay = aBirthDay;
         this.animalType = aAnimalType;

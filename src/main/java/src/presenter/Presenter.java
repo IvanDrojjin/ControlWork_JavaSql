@@ -4,7 +4,6 @@ import src.model.*;
 import src.view.View;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class Presenter {
     private View view;
@@ -28,7 +27,7 @@ public class Presenter {
         view.setPresenter(this);
     }
 
-    public void addAnimal(String name, List<String> skills, Gender aSex,
+    public void addAnimal(String name, String skills, Gender aSex,
                           LocalDate aBD, AnimalType aAnimalType) {  // String name, String sex, int age
         service.addAnimal(name, skills, aSex, aBD, aAnimalType);
 

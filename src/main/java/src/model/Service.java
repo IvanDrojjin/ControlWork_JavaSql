@@ -3,7 +3,6 @@ package src.model;
 import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 public class Service {
 
@@ -18,7 +17,7 @@ public class Service {
         animalTree = familyConnect;
     }
 
-    public void addAnimal(String aName, List<String> skills,
+    public void addAnimal(String aName, String skills,
                           Gender aSex, LocalDate aBirthDay, AnimalType aAnimalType){
         Animal aAnimal = new Animal(aName, skills, aSex, aBirthDay, aAnimalType);
         animalTree.addAnimal(aAnimal);
